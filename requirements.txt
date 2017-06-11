@@ -1,0 +1,4 @@
+Django==1.8
+gunicorn==19.3.0
+uwsgi==2.0.15
+redis==2.10.5

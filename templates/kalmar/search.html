@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<style>
+table {
+    border: 0px;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2
+}
+
+th, td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #ff0000;
+    color: white;
+    font-weight: bold;
+}
+
+body {
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+
+nav, section {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+nav {
+    font-weight: bold;
+}
+
+a {
+    color: black;
+}
+
+.chart {
+    width: 100%;
+    min-height: 450px;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+a:active {
+    text-decoration: none;
+}
+
+.floating-box {
+    display: inline-block;
+    background-color: #f2f2f2;
+    margin: 10px;
+    padding: 15px;
+}
+</style>
+
+<script>
+function search()
+{
+    nazwa = document.getElementById("nazwa").value
+    window.location.replace('/searcher?query='+nazwa)
+
+}
+</script>
+</head>
+<body>
+
+<header>
+    <h1>Wyszukiwarka przepisów!</h1>
+</header>
+
+<section>
+<textarea id="nazwa" rows="1" cols="50"></textarea>
+<button type="button" class="searchBtn" onclick="search()">Szukaj</button>
+    <table align="center">
+        {%  for recip in recipies %}
+        <tr>
+            <td><a href="{{ recip.uri }}">
+            {{ recip.title }}</a></td>
+        </tr>
+        {%  endfor %}
+    </table>
+
+</section>
+
+</body>
+</html>
